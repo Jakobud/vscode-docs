@@ -86,6 +86,35 @@ You can also enter your Personal Access Token as you publish with an optional pa
 vsce publish -p <token>
 ```
 
+### Publishing to the Marketplace
+
+Now that you are logged into your publisher, you are ready to publish your extension to the [Visual Studio Marketplace](http://marketplace.visualstudio.com).
+
+```bash
+vsce publish
+
+Publishing JohnDoe.vscode-myextension@1.0.0...
+Successfully published JohnDoe.vscode-myextension@1.0.0!
+```
+
+### Publishing changes to your extension
+
+In order to publish changes made to your extension, your extension version number (in `package.json`) must be incremented. If the version in `package.json` is not newer than the currently published version, then you cannot re-publish:
+
+```bash
+Publishing JohnDoe.vscode-myextension@1.0.0...
+Error: JohnDoe.vscode-myextension@1.0.0 already exists. Version number cannot be the same.
+```
+
+If you increment the version number in `package.json`, you will be able to publish new changes to your extension:
+
+```bash
+vsce publish
+
+Publishing JohnDoe.vscode-myextension@1.0.1...
+Successfully published JohnDoe.vscode-myextension@1.0.1!
+```
+
 ## Auto-incrementing the Extension Version
 
 You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
